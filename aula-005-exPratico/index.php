@@ -11,22 +11,17 @@
     <?php
     require_once('./classes/ContaBanco.php');
     $cb1 = new ContaBanco();
-    $cb1->abrirConta("CC", "Everton", 1);
+    $cb1->abrirConta("CC", "Jubileu", 123456);
     var_dump($cb1);
-
-    $cb1->depositar(10);
+    $cb1->depositar(300);
+    $cb1->pagarMensal();
 
     $cb2 = new ContaBanco();
-    $cb2->abrirConta("CP", "João", 2);
+    $cb2->abrirConta("CP", "Creuza", 234567);
     var_dump($cb2);
-
-    $cb2->depositar(20);
-    $cb2->sacar(170);
-    $cb2->depositar(400);
-    $cb2->fecharConta();
-    $cb2->sacar(390);
+    $cb2->depositar(500);
+    $cb2->sacar(100);
     $cb2->pagarMensal();
-    $cb2->fecharConta();
 
 
     ?>
