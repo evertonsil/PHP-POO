@@ -117,17 +117,27 @@ class ContaBanco
 
     }
     public function pagarMensal() {
-        $saldo = $this->getSaldo();
-        $tipo  = $this->getTipo();
+        $saldo       = $this->getSaldo();
+        $tipo        = $this->getTipo();
+        $status      = $this->getStatus();
+        $mensalidade = 0;
 
-        if ($tipo == "CC")
+        if ($status == true)
         {
-            $this->setSaldo($saldo - 12);
-            echo "<br>Pagamento de 12 reais referente a tarifa mensal, pago com sucesso! Seu saldo atual é de {$this->getSaldo()}";
-        } else if ($tipo == "CP")
+            if ($tipo == "CC")
+            {
+                $mensalidade = 12;
+                $this->setSaldo($saldo - $mensalidade);
+                echo "<br>Pagamento de 12 reais referente a tarifa mensal, pago com sucesso! Seu saldo atual é de {$this->getSaldo()}";
+            } else if ($tipo == "CP")
+            {
+                $mensalidade = 20;
+                $this->setSaldo($saldo - $mensalidade);
+                echo "<br>Pagamento de 20 reais referente a tarifa mensal, pago com sucesso! Seu saldo atual é de {$this->getSaldo()}";
+            }
+        } else
         {
-            $this->setSaldo($saldo - 20);
-            echo "<br>Pagamento de 20 reais referente a tarifa mensal, pago com sucesso! Seu saldo atual é de {$this->getSaldo()}";
+            echo "Erro ao pagar mensalidade. No momento esta conta está fechada!";
         }
     }
 }
