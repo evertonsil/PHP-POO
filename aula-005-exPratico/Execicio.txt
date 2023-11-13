@@ -1,0 +1,30 @@
+Conta de Banco
+
+    - Serão dois tipo de Conta
+        Conta Corrente (CC): 50 reais na abertura
+        Conta Poupança (CP): 150 reaus na abertura
+    
+
+Atributos da Classe ContaBanco
+    - publico numConta
+    - protegido tipo
+    - privado dono
+    - privado saldo
+    - privado status (aberta 1 ou fechada 0)
+
+Métodos da Classe ContaBanco - Todos públicos - Getter e Setters para todos os atributtos
+    - abrirConta()
+    - fecharConta()
+        - Não pode ter dineiro
+        - Não pode estar devendo
+    - depositar()
+        - Precisa estar aberta
+    - sacar()
+        - Precisa estar aberta
+        - Precisa ter saldo suficiente
+    - pagarMensal()
+        - Sempre que chamar esse método, subtrair 12 reais da CC e 20 reais da CP
+
+Método construtor
+    - Sempre que uma conta for criado o status deve ser false e o saldo 0
+    
