@@ -4,7 +4,7 @@ interface Controlador
 {
     //Métodos abstratos
     public function ligar();
-    public function deslligar();
+    public function desligar();
     public function abrirMenu();
     public function fecharMenu();
     public function maisVolume();
