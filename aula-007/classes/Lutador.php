@@ -18,10 +18,10 @@ class Lutador
         $this->nacionalidade = $nacionalidade;
         $this->idade         = $idade;
         $this->altura        = $altura;
-        $this->peso          = $peso;
-        $this->vitorias      = $vitorias;
-        $this->derrotas      = $derrotas;
-        $this->empates       = $empates;
+        $this->setPeso($peso);
+        $this->vitorias = $vitorias;
+        $this->derrotas = $derrotas;
+        $this->empates  = $empates;
     }
 
     public function getNome() {
@@ -63,22 +63,22 @@ class Lutador
     public function getCategoria() {
         return $this->categoria;
     }
-    public function setCategoria() {
+    private function setCategoria() {
         if ($this->peso < 52.2)
         {
-            $this->setCategoria = "Inválido";
+            $this->categoria = "Inválido";
         } else if ($this->peso <= 70.3)
         {
-            $this->setCategoria = "Leve";
+            $this->categoria = "Leve";
         } else if ($this->peso <= 83.9)
         {
-            $this->setCategoria = "Médio";
+            $this->categoria = "Médio";
         } else if ($this->peso <= 120.2)
         {
-            $this->setCategoria = "Pesado";
+            $this->categoria = "Pesado";
         } else
         {
-            $this->setCategoria = "Inválido";
+            $this->categoria = "Inválido";
         }
         return $this;
     }
@@ -106,6 +106,7 @@ class Lutador
 
     //Metodos
     public function apresentar() {
+        echo "<br>------------------------------------------------";
         echo "<br>Nome:" . $this->getNome();
         echo "<br>Nacionalidade:" . $this->getNacionalidade();
         echo "<br>Idade:" . $this->getIdade();
@@ -117,6 +118,7 @@ class Lutador
         echo "<br>Empates:" . $this->getEmpates();
     }
     public function status() {
+        echo "<br>------------------------------------------------";
         echo "<br>Nome:" . $this->getNome();
         echo "<br>Categoria:" . $this->getCategoria();
         echo "<br>Vitórias:" . $this->getVitorias();
