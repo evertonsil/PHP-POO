@@ -14,14 +14,14 @@ class Lutador
 
     //Metodos especiais
     public function __construct($nome, $nacionalidade, $idade, $altura, $peso, $vitorias, $derrotas, $empates) {
-        $this->nome          = $this->setNome($nome);
-        $this->nacionalidade = $this->setNacionalidade($nacionalidade);
-        $this->idade         = $this->setIdade($idade);
-        $this->altura        = $this->setAltura($altura);
-        $this->peso          = $this->setPeso($peso);
-        $this->vitorias      = $this->setVitorias($vitorias);
-        $this->derrotas      = $this->setDerrotas($derrotas);
-        $this->empates       = $this->setEmpates($empates);
+        $this->nome          = $nome;
+        $this->nacionalidade = $nacionalidade;
+        $this->idade         = $idade;
+        $this->altura        = $altura;
+        $this->peso          = $peso;
+        $this->vitorias      = $vitorias;
+        $this->derrotas      = $derrotas;
+        $this->empates       = $empates;
     }
 
     public function getNome() {
@@ -57,28 +57,28 @@ class Lutador
     }
     public function setPeso($peso) {
         $this->peso = $peso;
-        $this->setCategoria($peso);
+        $this->setCategoria();
         return $this;
     }
     public function getCategoria() {
         return $this->categoria;
     }
-    public function setCategoria($peso) {
+    public function setCategoria() {
         if ($this->peso < 52.2)
         {
-            $this->setCategoria("Inválido");
+            $this->setCategoria = "Inválido";
         } else if ($this->peso <= 70.3)
         {
-            $this->setCategoria("Leve");
+            $this->setCategoria = "Leve";
         } else if ($this->peso <= 83.9)
         {
-            $this->setCategoria("Médio");
+            $this->setCategoria = "Médio";
         } else if ($this->peso <= 120.2)
         {
-            $this->setCategoria("Pesado");
+            $this->setCategoria = "Pesado";
         } else
         {
-            $this->setCategoria("Inválido");
+            $this->setCategoria = "Inválido";
         }
         return $this;
     }
@@ -106,35 +106,32 @@ class Lutador
 
     //Metodos
     public function apresentar() {
-        echo "<br>Nome: $this->getNome()";
-        echo "<br>Nacionalidade: $this->getNacionalidade()";
-        echo "<br>Idade: $this->getIdade()";
-        echo "<br>Altura: $this->getAltura()";
-        echo "<br>Peso: $this->getPeso()";
-        echo "<br>Categoria: $this->getCategoria()";
-        echo "<br>Vitórias: $this->getVitorias()";
-        echo "<br>Derrotas: $this->getDerrotas()";
-        echo "<br>Empates: $this->getEmpates()";
+        echo "<br>Nome:" . $this->getNome();
+        echo "<br>Nacionalidade:" . $this->getNacionalidade();
+        echo "<br>Idade:" . $this->getIdade();
+        echo "<br>Altura:" . $this->getAltura();
+        echo "<br>Peso:" . $this->getPeso();
+        echo "<br>Categoria:" . $this->getCategoria();
+        echo "<br>Vitórias:" . $this->getVitorias();
+        echo "<br>Derrotas:" . $this->getDerrotas();
+        echo "<br>Empates:" . $this->getEmpates();
     }
     public function status() {
-        echo "<br>Nome: $this->getNome()";
-        echo "<br>Categoria: $this->getCategoria()";
-        echo "<br>Vitórias: $this->getVitoria()";
-        echo "<br>Derrotas: $this->getDerrotas()";
+        echo "<br>Nome:" . $this->getNome();
+        echo "<br>Categoria:" . $this->getCategoria();
+        echo "<br>Vitórias:" . $this->getVitorias();
+        echo "<br>Derrotas:" . $this->getDerrotas();
     }
     public function ganharLuta() {
         $vitorias = $this->getVitorias();
-        $vitorias = $vitorias + 1;
+        $this->setVitorias($vitorias + 1);
     }
     public function perderLuta() {
-        $vitorias = $this->getVitorias();
-        if ($vitorias >= 0)
-        {
-            $vitorias = $vitorias - 1;
-        }
+        $derrotas = $this->getDerrotas();
+        $this->setDerrotas($derrotas + 1);
     }
     public function empatarLuta() {
         $empates = $this->getEmpates();
-        $empates = $empates + 1;
+        $this->setEmpates($empates + 1);
     }
 }
