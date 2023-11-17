@@ -1,0 +1,4 @@
+- Só pode ser marcada entre lutadores da mesma categoria;
+- Desafiado e desafiante dever ser lutadores diferentes;
+- Só pode acontecer se estiver aprovada;
+- Só pode ter como resultado a vitória de um dos lutadores ou o empate.
