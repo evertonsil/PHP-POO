@@ -37,8 +37,12 @@ class Pessoa
 
     //Métodos
     public function fazerAniver() {
+        echo
+            '<div id="aniversarioGif" style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); display: none;">
+                <img src="./assets/gifs-de-balao-11.gif" alt="Aniversário do Livro" style="width: 100%;">
+            </div>';
         $this->setIdade($this->getIdade() + 1);
-        echo "Feliz aniversário" . $this->getNome() . "!";
-        echo "Hoje você faz" . $this->getIdade() . "anos.";
+        echo "Feliz aniversário " . $this->getNome() . "!";
+        echo " Hoje você faz " . $this->getIdade() . " anos.";
     }
 }

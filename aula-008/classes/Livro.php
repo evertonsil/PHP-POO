@@ -16,6 +16,8 @@ class Livro implements Publicacao
         $this->setTitulo($titulo);
         $this->setAutor($autor);
         $this->setTotalPaginas($totalPaginas);
+        $this->setAberto(false);
+        $this->setPagAtual(0);
         $this->setLeitor($leitor->getNome());
     }
     public function getTitulo() {
@@ -63,7 +65,10 @@ class Livro implements Publicacao
 
     //Métodos
     public function detalhes() {
-
+        echo "O livro está" . ($this->getAberto() ? " Aberto" : " Fechado");
+        echo "<br>Livro: <strong>{$this->getTitulo()}</strong>, escrito por <strong>{$this->getAutor()}.</strong>";
+        echo "<br>Com o total de {$this->getTotalPaginas()} páginas.";
+        echo "<br>No momento {$this->getLeitor()} é o leitor desse livro e está na página {$this->getPagAtual()}";
     }
     public function abrir() {
         $this->aberto = true;
@@ -78,7 +83,6 @@ class Livro implements Publicacao
         } else
         {
             $this->pagAtual = $pagina;
-            echo "Página atual:" . $this->pagAtual;
         }
 
     }
@@ -89,7 +93,6 @@ class Livro implements Publicacao
         } else
         {
             $this->pagAtual++;
-            echo "Página atual:" . $this->pagAtual;
         }
 
     }
@@ -100,7 +103,6 @@ class Livro implements Publicacao
         } else
         {
             $this->pagAtual--;
-            echo "Página Atual" . $this->pagAtual;
         }
     }
 }
