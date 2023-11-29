@@ -44,11 +44,6 @@ $reptil->setIdade(33);
 $reptil->setMembros(4);
 $reptil->setCorEscama('Verde');
 
-var_dump($ave);
-var_dump($mamifero);
-var_dump($peixe);
-var_dump($reptil);
-
 $arara     = new Arara();
 $cachorro  = new Cachorro();
 $canguro   = new Canguru();
@@ -61,24 +56,45 @@ $cachorro->setCorPelo('Branco');
 $cachorro->setIdade(7);
 $cachorro->setRaca('Husk');
 
+
+echo '<p>Sobreposição - Mostrando a diferença do resultado do método locomover(), entre reptil e tartaruga</p>';
+$reptil->locomover();
 $tartaruga->locomover();
 
-var_dump($cachorro);
-var_dump($tartaruga);
+echo '<p>Sobreposição - Mostrando a diferença do resultado do método emitirSom(), entre mamifero e cachorro</p>';
+$mamifero->emitirSom();
+$cachorro->emitirSom();
 
-// $ave->fazerNinho();
-// $ave->locomover();
-// $ave->alimentar();
-// $ave->emitirSom();
 
-// $mamifero->locomover();
-// $mamifero->alimentar();
-// $mamifero->emitirSom();
+$frases_cachorro = array(
+    "positivas" => array(
+        "bom_garoto" => "Bom garoto!",
+        "fofo" => "Você é tão fofo!",
+        "adoro" => "Adoro quando você está por perto!",
+        "melhor_amigo" => "Você é o melhor amigo que alguém poderia ter.",
+        "inteligente" => "Que cachorrinho inteligente!"
+    ),
+    "negativas" => array(
+        "nao_bagunce" => "Não faça bagunça!",
+        "pare_roer" => "Pare de roer isso!",
+        "bagunceiro" => "O que você fez aí? Bagunceiro!",
+        "conversar" => "Precisamos conversar sobre o tapete destruído.",
+        "nao_subir" => "Não, não pode subir na cama!"
+    )
+);
 
-// $peixe->locomover();
-// $peixe->alimentar();
-// $peixe->emitirSom();
-// $peixe->soltarBolha();
+$tipo_frase      = array_rand($frases_cachorro);
+$frase_escolhida = $frases_cachorro[$tipo_frase][array_rand($frases_cachorro[$tipo_frase])];
+
+$cachorro->reagirFrase($frase_escolhida, $tipo_frase);
+
+date_default_timezone_set('America/Sao_Paulo');
+$hora_atual = date("H:i");
+
+$cachorro->reagirHora($hora_atual);
+$cachorro->reagirDono(true);
+$cachorro->reagirIdadePeso(2, 3);
+
 ?>
 
 <body>
